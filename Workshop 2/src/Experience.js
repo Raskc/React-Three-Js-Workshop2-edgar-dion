@@ -1,7 +1,11 @@
 import { useThree, extend } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-
+import { useControls } from 'leva'
 extend({ OrbitControls })
+
+const { color } = useControls({
+    color: '#0000FF',
+})
 
 export default function Experience()
 {
@@ -16,12 +20,12 @@ export default function Experience()
 
         <mesh position-x={ - 2 }>
             <sphereGeometry />
-            <meshStandardMaterial color="orange" />
+            <meshStandardMaterial color={ color } />
         </mesh>
 
         <mesh position-x={ 2 } scale={ 1.5 }>
             <boxGeometry />
-            <meshStandardMaterial color="mediumpurple" />
+            <meshStandardMaterial color={ color } />
         </mesh>
 
         <mesh position-y={ - 1 } rotation-x={ - Math.PI * 0.5 } scale={ 10 }>
